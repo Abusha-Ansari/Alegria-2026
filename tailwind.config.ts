@@ -113,6 +113,14 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "typing": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        "blink": {
+          "0%, 50%": { borderColor: "transparent" },
+          "51%, 100%": { borderColor: "hsl(var(--primary))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -123,6 +131,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "scale-in": "scale-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
         "spin-slow": "spin-slow 20s linear infinite",
+        "typing": "typing 3s steps(7, end) forwards",
+        "blink": "blink 1s infinite",
       },
     },
   },

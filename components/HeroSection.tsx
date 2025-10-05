@@ -1,15 +1,73 @@
 import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
 
 const heroBackground = '/assets/hero-background.jpg';
 
 const HeroSection = () => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [typingComplete, setTypingComplete] = useState(false);
 
   const scrollToEvents = () => {
     document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const title = "ALEGRIA";
-  const letters = title.split('');
+
+  useEffect(() => {
+    let currentIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+
+    const animationCycle = () => {
+      const typingInterval = setInterval(() => {
+        if (!isPaused && !isDeleting) {
+          // Typing phase
+          if (currentIndex <= title.length) {
+            setDisplayedText(title.slice(0, currentIndex));
+            currentIndex++;
+          } else {
+            // Pause after typing complete
+            isPaused = true;
+            setTypingComplete(true);
+            setTimeout(() => {
+              isPaused = false;
+              isDeleting = true;
+            }, 2000); // 2 second pause
+          }
+        } else if (isDeleting && !isPaused) {
+          // Deleting phase
+          if (currentIndex > 0) {
+            currentIndex--;
+            setDisplayedText(title.slice(0, currentIndex));
+          } else {
+            // Reset for next cycle
+            isDeleting = false;
+            setTypingComplete(false);
+            setTimeout(() => {
+              // Start next cycle
+              animationCycle();
+            }, 1000); // 1 second pause before restarting
+            clearInterval(typingInterval);
+          }
+        }
+      }, isDeleting ? 100 : 300); // Faster deletion (100ms) vs typing (300ms)
+
+      return typingInterval;
+    };
+
+    const interval = animationCycle();
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Cursor blinking effect
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -32,25 +90,19 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 space-y-8 animate-slide-in">
-        {/* Main Logo/Title with Letter Animation */}
+        {/* Main Logo/Title with Typing Animation */}
         <div className="space-y-4">
-          <h1 className="font-heading text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] leading-none tracking-wider">
-            {letters.map((letter, index) => (
-              <span
-                key={index}
-                className="inline-block text-gradient animate-scale-in"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: 'both',
-                }}
-              >
-                {letter}
-              </span>
-            ))}
+          <h1 className="font-heading text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] leading-none tracking-wider relative">
+            <span className="text-gradient">
+              {displayedText}
+            </span>
+            <span 
+              className={`inline-block w-2 h-[0.9em] bg-primary ml-2 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100 align-bottom`}
+            />
           </h1>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '3s', animationFillMode: 'both' }}>
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <p className="font-heading text-4xl sm:text-5xl md:text-6xl text-metallic animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
+            <p className="font-heading text-4xl sm:text-5xl md:text-6xl text-metallic">
               2025
             </p>
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -58,12 +110,12 @@ const HeroSection = () => {
         </div>
 
         {/* Tagline */}
-        <p className="text-xl sm:text-2xl md:text-3xl text-secondary tracking-widest max-w-3xl mx-auto animate-slide-in" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
+        <p className="text-xl sm:text-2xl md:text-3xl text-secondary tracking-widest max-w-3xl mx-auto animate-slide-in" style={{ animationDelay: '3.3s', animationFillMode: 'both' }}>
           UNLEASH THE HERO WITHIN
         </p>
 
         {/* CTA Button */}
-        <div className="pt-8 animate-scale-in" style={{ animationDelay: '1.2s', animationFillMode: 'both' }}>
+        <div className="pt-8 animate-scale-in" style={{ animationDelay: '3.6s', animationFillMode: 'both' }}>
           <Button
             onClick={scrollToEvents}
             size="lg"
