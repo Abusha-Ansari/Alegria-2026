@@ -54,8 +54,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        heading: ['Bebas Neue', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'sans-serif'],
+        heading: ['var(--font-bebas-neue)', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

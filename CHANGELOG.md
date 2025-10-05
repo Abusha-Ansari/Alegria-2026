@@ -1,5 +1,108 @@
 # CHANGELOG
 
+## [0.2.1] - 2025-10-05
+
+### Fixed ESLint Warnings and Font Configuration
+**Date**: October 5, 2025  
+**Version**: 0.2.1
+
+#### Changes Made
+- **Fixed**: `components/HeroSection.tsx` - Removed unused `typingComplete` state variable
+- **Fixed**: `components/Navbar.tsx` - Removed unused NavigationMenu imports (NavigationMenuContent, NavigationMenuTrigger)
+- **Enhanced**: `app/layout.tsx` - Migrated Google Fonts from link tags to Next.js font optimization
+- **Updated**: `app/globals.css` - Updated font-family references to use CSS variables
+- **Updated**: `tailwind.config.ts` - Updated fontFamily configuration to use CSS variables
+
+#### Technical Improvements
+- **Font Optimization**: Replaced manual Google Fonts links with Next.js `next/font/google` imports
+- **Performance**: Fonts now use Next.js automatic optimization and preloading
+- **CSS Variables**: Proper font variable usage for better maintainability
+- **Code Quality**: Eliminated all ESLint warnings for cleaner builds
+- **Type Safety**: Removed unused imports and variables for better TypeScript compliance
+
+#### Font Configuration Updates
+- **Poppins**: Imported with weights 300, 400, 500, 600, 700 and CSS variable `--font-poppins`
+- **Bebas Neue**: Imported with weight 400 and CSS variable `--font-bebas-neue`
+- **Inter**: Maintained as base font with proper Next.js integration
+- **CSS Integration**: Updated globals.css and Tailwind config to use font variables
+
+#### Files Affected
+- `components/HeroSection.tsx` (removed unused state)
+- `components/Navbar.tsx` (cleaned imports)
+- `app/layout.tsx` (font optimization)
+- `app/globals.css` (font variable usage)
+- `tailwind.config.ts` (font configuration)
+- `CHANGELOG.md` (documentation update)
+
+#### Build Quality Improvements
+- **Zero ESLint Warnings**: Clean build output with no linting issues
+- **Better Performance**: Optimized font loading with Next.js font system
+- **Maintainability**: Consistent font variable usage across the project
+- **Type Safety**: Removed all unused variables and imports
+
+#### User Feedback & Open Questions
+- Build now compiles cleanly without ESLint warnings
+- Font loading is optimized for better performance
+- Code quality improvements ensure better maintainability
+
+---
+
+## [0.2.0] - 2025-10-05
+
+### Added Marvel-Themed Navigation Bar
+**Date**: October 5, 2025  
+**Version**: 0.2.0
+
+#### Changes Made
+- **Created**: `components/Navbar.tsx` - Marvel-themed navigation bar with glass morphism effects
+- **Enhanced**: `app/page.tsx` - Added navbar to main layout and section IDs for navigation
+- **Implemented**: Responsive navigation with desktop and mobile layouts
+- **Added**: Scroll-based navbar background transition (transparent → glass effect)
+- **Integrated**: Radix UI Navigation Menu components for accessibility
+- **Styled**: Marvel-themed icons, gradients, and glow effects throughout navbar
+
+#### Technical Implementation
+- **Glass Morphism**: Dynamic backdrop-blur and transparency based on scroll position
+- **Responsive Design**: Desktop navigation menu with mobile hamburger menu overlay
+- **Smooth Scrolling**: JavaScript-based section navigation with smooth scroll behavior
+- **Icon Integration**: Lucide React icons (Shield, Zap, Calendar, Users, Trophy, Phone)
+- **State Management**: React hooks for scroll detection and mobile menu toggle
+- **Accessibility**: Proper ARIA labels and keyboard navigation support
+
+#### Navigation Features
+- **Logo**: Interactive ALEGRIA logo with Shield icon and hover animations
+- **Menu Items**: Home, About, Events, Schedule, Sponsors, Contact with themed icons
+- **CTA Button**: "Join Event" button with gradient background and hover effects
+- **Mobile Menu**: Slide-down overlay menu for mobile devices
+- **Scroll Effects**: Navbar becomes glass/blurred when user scrolls down
+
+#### Visual Design Elements
+- **Glass Effect**: Backdrop blur with border glow when scrolled
+- **Gradient Text**: Marvel-themed red-to-blue gradient on logo and hover states
+- **Glow Effects**: Primary/accent color glows on interactive elements
+- **Hover Animations**: Scale, color, and glow transitions on all interactive elements
+- **Border Effects**: Subtle borders with primary/accent color highlights
+
+#### Files Affected
+- `components/Navbar.tsx` (new component)
+- `app/page.tsx` (navbar integration and section IDs)
+- `CHANGELOG.md` (documentation update)
+
+#### User Experience Improvements
+- **Easy Navigation**: Quick access to all major sections of the event website
+- **Visual Feedback**: Clear hover states and active indicators
+- **Mobile Friendly**: Responsive design works seamlessly on all devices
+- **Brand Consistency**: Maintains Marvel theme throughout navigation experience
+- **Performance**: Optimized scroll listeners and smooth animations
+
+#### User Feedback & Open Questions
+- Navbar provides intuitive navigation between event sections
+- Glass morphism effect creates modern, premium feel
+- Mobile menu ensures accessibility on smaller screens
+- All navigation items use smooth scrolling for better UX
+
+---
+
 ## [0.1.2] - 2025-10-05
 
 ### Fixed Cursor Positioning in Typing Animation
@@ -171,10 +274,11 @@
   - Manages HTML structure and metadata
 
 - **`app/page.tsx`**: Main homepage component
+  - **UPDATED**: Added Navbar component and section IDs for navigation
   - Orchestrates all page sections and loading states
   - Manages custom cursor and animated background
   - Controls loading screen and page transitions
-  - Renders: Hero, About, Events, Schedule, Registration, Sponsors, Footer
+  - Renders: Navbar, Hero, About, Events, Schedule, Registration, Sponsors, Footer
 
 - **`app/providers.tsx`**: Client-side providers wrapper
   - TanStack Query Client configuration
@@ -189,6 +293,15 @@
 - **`app/not-found.tsx`**: 404 error page component
 
 #### Components Directory
+**Navigation:**
+- **`components/Navbar.tsx`**: Marvel-themed navigation bar
+  - **NEW**: Glass morphism effect with scroll-based transparency
+  - **NEW**: Responsive design with desktop menu and mobile overlay
+  - **NEW**: Smooth scrolling navigation to page sections
+  - **NEW**: Marvel-themed icons and gradient effects
+  - **NEW**: Interactive logo with Shield icon and hover animations
+  - **NEW**: "Join Event" CTA button with gradient background
+
 **Main Page Sections:**
 - **`components/HeroSection.tsx`**: Landing hero with infinite typewriter animation
   - **UPDATED**: Infinite loop typewriter effect for "ALEGRIA" title

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import CustomCursor from '@/components/CustomCursor';
 import LoadingScreen from '@/components/LoadingScreen';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
@@ -28,19 +29,34 @@ export default function HomePage() {
     <>
       <CustomCursor />
       <AnimatedBackground />
+      <Navbar />
       
       {isLoading && (
         <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       )}
       
       <main className={`relative transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        <HeroSection />
-        <AboutSection />
-        <EventsSection />
-        <ScheduleSection />
-        <RegistrationSection />
-        <SponsorsSection />
-        <Footer />
+        <section id="home">
+          <HeroSection />
+        </section>
+        <section id="about">
+          <AboutSection />
+        </section>
+        <section id="events">
+          <EventsSection />
+        </section>
+        <section id="schedule">
+          <ScheduleSection />
+        </section>
+        <section id="registration">
+          <RegistrationSection />
+        </section>
+        <section id="sponsors">
+          <SponsorsSection />
+        </section>
+        <section id="contact">
+          <Footer />
+        </section>
       </main>
     </>
   );

@@ -6,7 +6,6 @@ const heroBackground = '/assets/hero-background.jpg';
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [typingComplete, setTypingComplete] = useState(false);
 
   const scrollToEvents = () => {
     document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' });
@@ -29,7 +28,6 @@ const HeroSection = () => {
           } else {
             // Pause after typing complete
             isPaused = true;
-            setTypingComplete(true);
             setTimeout(() => {
               isPaused = false;
               isDeleting = true;
@@ -43,7 +41,6 @@ const HeroSection = () => {
           } else {
             // Reset for next cycle
             isDeleting = false;
-            setTypingComplete(false);
             setTimeout(() => {
               // Start next cycle
               animationCycle();
