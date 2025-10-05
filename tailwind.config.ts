@@ -2,8 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
-  prefix: "",
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+    "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -70,11 +74,11 @@ export default {
         "glow-pulse": {
           "0%, 100%": { 
             opacity: "1",
-            boxShadow: "0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary), 0.5)"
+            boxShadow: "0 0 20px hsl(var(--primary)), 0 0 40px hsl(var(--primary) / 0.5)"
           },
           "50%": { 
             opacity: "0.8",
-            boxShadow: "0 0 30px hsl(var(--primary)), 0 0 60px hsl(var(--primary), 0.8)"
+            boxShadow: "0 0 30px hsl(var(--primary)), 0 0 60px hsl(var(--primary) / 0.8)"
           },
         },
         "float": {

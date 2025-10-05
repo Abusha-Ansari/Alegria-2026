@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# Alegria 2026 - Next.js 15 with Tailwind CSS v5
 
-## Project info
+A Marvel-themed event website built with Next.js 15, TypeScript, and Tailwind CSS v5.
 
-**URL**: https://lovable.dev/projects/81dfb037-3e6b-4076-9c7f-d847eb179b84
+## 🚀 Migration Complete
 
-## How can I edit this code?
+This project has been successfully migrated from **React + Vite** to **Next.js 15** with **Tailwind CSS v5**.
 
-There are several ways of editing your application.
+### What Changed:
+- ✅ **Framework**: React + Vite → Next.js 15 with App Router
+- ✅ **Build Tool**: Vite → Next.js built-in compiler
+- ✅ **Routing**: React Router → Next.js App Router
+- ✅ **Styling**: Tailwind CSS v3 → Tailwind CSS v5 (alpha)
+- ✅ **Project Structure**: src/ → app/ directory structure
+- ✅ **Assets**: Moved to public/ directory
+- ✅ **TypeScript**: Updated configuration for Next.js
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/81dfb037-3e6b-4076-9c7f-d847eb179b84) and start prompting.
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v5 (alpha)
+- **UI Components**: Shadcn/UI with Radix UI
+- **State Management**: TanStack Query (React Query)
+- **Forms**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+- **Theme**: Next Themes
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Installation
 
-**Use your preferred IDE**
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Start the development server:
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🏗️ Build
 
-**Use GitHub Codespaces**
+Build for production:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
+Start production server:
 
-This project is built with:
+```bash
+npm start
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── globals.css        # Global styles
+│   └── providers.tsx      # Client providers
+├── components/            # React components
+│   ├── ui/               # Shadcn/UI components
+│   └── ...               # Custom components
+├── lib/                  # Utility functions
+├── hooks/                # Custom React hooks
+├── public/               # Static assets
+│   └── assets/          # Images and media
+└── ...
+```
 
-Simply open [Lovable](https://lovable.dev/projects/81dfb037-3e6b-4076-9c7f-d847eb179b84) and click on Share -> Publish.
+## 🎨 Features
 
-## Can I connect a custom domain to my Lovable project?
+- **Marvel-themed Design**: Dark theme with red, blue, and gold accents
+- **Responsive Layout**: Mobile-first design
+- **Interactive Elements**: Custom cursor, animations, loading screen
+- **Modern UI**: Glass morphism effects, glowing elements
+- **Performance**: Optimized with Next.js 15
+- **Type Safety**: Full TypeScript support
 
-Yes, you can!
+## 🔧 Scripts
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
